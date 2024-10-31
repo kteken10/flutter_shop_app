@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Import de Font Awesome
+
+import '../../constants/colors.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _OnboardingPageState createState() => _OnboardingPageState();
 }
 
@@ -96,8 +100,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
           width: currentIndex == index ? 5.0 : 5.0,
           height: currentIndex == index ? 5.0 : 7,
           decoration: BoxDecoration(
-            color: currentIndex == index ? Colors.blue : Colors.grey,
-            borderRadius: currentIndex == index ? BorderRadius.circular(0) : BorderRadius.circular(4), 
+            color: currentIndex == index ? AppColors.blueSkin : Colors.grey,
+            borderRadius: currentIndex == index ? BorderRadius.circular(0) : BorderRadius.circular(4),
           ),
         );
       }),
@@ -105,12 +109,32 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _buildCircle() {
-    return Container(
-      width: 65,
-      height: 65,
-      decoration: const BoxDecoration(
-        color: Colors.blue, // Changez la couleur si nécessaire
-        shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () {
+        // Passer à la page suivante
+        if (currentIndex < 2) { // 2 est l'index de la dernière page (0, 1, 2)
+          setState(() {
+            currentIndex++;
+          });
+        } else {
+          // Si c'est la dernière page, naviguez vers la page d'accueil
+          Navigator.pushReplacementNamed(context, '/home');
+        }
+      },
+      child: Container(
+        width: 65,
+        height: 65,
+        decoration: BoxDecoration(
+          color: AppColors.primary.withOpacity(0.7),
+          shape: BoxShape.circle,
+        ),
+        child: const Center(
+          child: FaIcon(
+            FontAwesomeIcons.arrowRight,
+            color: Colors.white,
+            size: 20,
+          ),
+        ),
       ),
     );
   }
