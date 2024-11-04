@@ -48,7 +48,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             alignment: Alignment.topRight,
             child: TextButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, '/login');
               },
               child: const Text("Passer"),
             ),
@@ -107,7 +107,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
       }),
     );
   }
-
   Widget _buildCircle() {
     return GestureDetector(
       onTap: () {
@@ -118,7 +117,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           });
         } else {
           // Si c'est la dernière page, naviguez vers la page d'accueil
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, '/login');
         }
       },
       child: Container(
