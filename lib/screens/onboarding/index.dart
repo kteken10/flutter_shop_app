@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Import de Font Awesome
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; 
 
 import '../../constants/colors.dart';
 
