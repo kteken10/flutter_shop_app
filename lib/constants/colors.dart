@@ -8,7 +8,10 @@ class AppColors {
   static const Color blueSkin = Color(0xFF32B6EC);
   static const Color secondaryDark = Color(0xFF4B496F);
   static const Color secondaryBoldDark = Color(0xFF383752);
+
+
   static const Color whiteContainer = Color(0xFFFFFFFF); 
-  static const Color whiteBack = Color(0xFFFafafa);
+  static const Color whiteBack = Color(0xFFFBFBFB); 
+
   static const Color grayProd = Color(0xFFE4E4E4); 
 }

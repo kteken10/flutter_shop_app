@@ -23,17 +23,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
           _buildPage(
             title: "Bienvenue dans notre boutique",
             body: "Explorez des milliers de produits à portée de main.",
-            image: 'assets/ecommerce1.png',
+            image: 'assets/ecommerce1.jpg',
           ),
           _buildPage(
             title: "Facilité d'utilisation",
             body: "Naviguez aisément grâce à notre interface intuitive.",
-            image: 'assets/ecommerce2.png',
+            image: 'assets/ecommerce2.jpg',
           ),
           _buildPage(
             title: "Créez votre compte",
             body: "Inscrivez-vous en quelques clics pour profiter de nos offres exclusives.",
-            image: 'assets/ecommerce3.png',
+            image: 'assets/ecommerce3.jpg',
           ),
         ],
         startIndex: 0,
