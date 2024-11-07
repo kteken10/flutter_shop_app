@@ -13,5 +13,5 @@ class AppColors {
   static const Color whiteContainer = Color(0xFFFFFFFF); 
   static const Color whiteBack = Color(0xFFFBFBFB); 
 
-  static const Color grayProd = Color(0xFFE4E4E4); 
+  // static const Color grayProd = Color(#8690a3); 
 }

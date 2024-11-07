@@ -7,14 +7,18 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.whiteBack,
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: Container(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Container(
+                height: screenHeight - 32,
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: AppColors.whiteContainer,
@@ -42,7 +46,6 @@ class LoginPage extends StatelessWidget {
                       height: 250,
                       width: 250,
                     ),
-                    // Titre
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -55,24 +58,21 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-
-                    // Champ Email
                     const TextField(
                       decoration: InputDecoration(
                         labelText: 'Email ID',
+                        labelStyle: TextStyle(color: AppColors.secondary),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: AppColors.blueSkin),
                         ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.grayProd),
+                          borderSide: BorderSide(color: AppColors.secondary),
                         ),
                         prefixIcon: Icon(FontAwesomeIcons.at,
-                            color: AppColors.grayProd),
+                            color: AppColors.secondary),
                       ),
                     ),
                     const SizedBox(height: 10),
-
-                    // Champ Password avec "Forgot?"
                     Stack(
                       alignment: Alignment.centerRight,
                       children: [
@@ -80,28 +80,28 @@ class LoginPage extends StatelessWidget {
                           obscureText: true,
                           decoration: InputDecoration(
                             labelText: 'Password',
+                            labelStyle: TextStyle(color: AppColors.secondary),
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: AppColors.blueSkin),
                             ),
                             enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: AppColors.grayProd),
+                              borderSide:
+                                  BorderSide(color: AppColors.secondary),
                             ),
-                            prefixIcon: Icon(Icons.lock,
-                                color: AppColors.grayProd),
+                            prefixIcon:
+                                Icon(Icons.lock, color: AppColors.secondary),
                           ),
                         ),
                         Positioned(
                           right: 0,
-                         
                           child: GestureDetector(
                             onTap: () {
-                              // Ici tu peux naviguer ou afficher un message
                               print('Forgot password clicked');
                             },
                             child: const Text(
                               'Forgot?',
                               style: TextStyle(
-                                color: AppColors.primary,
+                                color: AppColors.blueSkin,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -110,40 +110,133 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 32),
 
-                    // Bouton de connexion
+                    // Ajout du bouton "Login" qui prend toute la largeur
                     SizedBox(
-                      width: double.infinity,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(8),
+                      width: double.infinity,  // Prend toute la largeur
+                      
+                      child: ElevatedButton(
+                        onPressed: () {
+                          print('Login button pressed');
+                          // Ajoute ici la logique pour la connexion
+                        },
+                       
+                        style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
-                        alignment: Alignment.center,
+                        
+
                         child: const Text(
-                          'Se connecter',
+                          'Login',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/signup');
-                      },
-                      child: const Text("Pas encore de compte? Inscrivez-vous."),
+                    
+                    const SizedBox(height: 40),
+                    const Text(
+                      'Or, login With...',
+                      style: TextStyle(
+                        color: AppColors.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                    const SizedBox(height: 40),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1,
+                                color: AppColors.secondary.withOpacity(0.2)),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              FontAwesomeIcons.facebook,
+                              color: Colors.blue,
+                              size: 25,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1,
+                                color: AppColors.secondary.withOpacity(0.2)),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              FontAwesomeIcons.google,
+                              color: Colors.red,
+                              size: 25,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 100,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1,
+                                color: AppColors.secondary.withOpacity(0.2)),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              FontAwesomeIcons.apple,
+                              color: Colors.black,
+                              size: 25,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'New to MakVita?',
+                          style: TextStyle(
+                            color: AppColors.secondary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacementNamed(context, '/signup');
+                          },
+                          child: const Text(
+                            "Register",
+                            style: TextStyle(
+                              color: AppColors.blueSkin, 
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
