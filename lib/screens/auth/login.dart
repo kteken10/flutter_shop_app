@@ -4,7 +4,7 @@ import 'package:myshop/constants/colors.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
-  static const Color quadrary = Color(0xFF605E8E);
+  static const Color grayFineColor = Color(0xFF605E8E);
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -61,12 +61,12 @@ class LoginPage extends StatelessWidget {
                     const TextField(
                       decoration: InputDecoration(
                         labelText: 'Email ID',
-                        labelStyle: TextStyle(color: AppColors.quadrary),
+                        labelStyle: TextStyle(color: AppColors.grayFineColor),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: AppColors.primary),
                         ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.quadrary),
+                          borderSide: BorderSide(color: AppColors.grayFineColor),
                         ),
                         prefixIcon: Icon(FontAwesomeIcons.at,
                             color: AppColors.quadrary),
@@ -80,13 +80,13 @@ class LoginPage extends StatelessWidget {
                           obscureText: true,
                           decoration: InputDecoration(
                             labelText: 'Password',
-                            labelStyle: TextStyle(color: AppColors.quadrary),
+                            labelStyle: TextStyle(color: AppColors.grayFineColor),
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: AppColors.primary),
                             ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide:
-                                  BorderSide(color: AppColors.quadrary),
+                                  BorderSide(color: AppColors.grayFineColor),
                             ),
                             prefixIcon:
                                 Icon(Icons.lock, color: AppColors.quadrary),
@@ -142,7 +142,7 @@ class LoginPage extends StatelessWidget {
                     const Text(
                       'Or, login With...',
                       style: TextStyle(
-                        color: AppColors.quadrary,
+                        color: AppColors.grayFineColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -156,7 +156,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.quadrary.withOpacity(0.2)),
+                                color: AppColors.grayFineColor.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -173,7 +173,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.quadrary.withOpacity(0.2)),
+                                color: AppColors.grayFineColor.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -190,7 +190,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.quadrary.withOpacity(0.2)),
+                                color: AppColors.grayFineColor.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -210,7 +210,7 @@ class LoginPage extends StatelessWidget {
                         const Text(
                           'New to MakVita ? ',
                           style: TextStyle(
-                            color: AppColors.quadrary,
+                            color: AppColors.grayFineColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
