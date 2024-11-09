@@ -4,7 +4,7 @@ import 'package:myshop/constants/colors.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
-
+  static const Color quadrary = Color(0xFF605E8E);
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -61,15 +61,15 @@ class LoginPage extends StatelessWidget {
                     const TextField(
                       decoration: InputDecoration(
                         labelText: 'Email ID',
-                        labelStyle: TextStyle(color: AppColors.secondary),
+                        labelStyle: TextStyle(color: AppColors.quadrary),
                         focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueSkin),
+                          borderSide: BorderSide(color: AppColors.primary),
                         ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.secondary),
+                          borderSide: BorderSide(color: AppColors.quadrary),
                         ),
                         prefixIcon: Icon(FontAwesomeIcons.at,
-                            color: AppColors.secondary),
+                            color: AppColors.quadrary),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -80,16 +80,16 @@ class LoginPage extends StatelessWidget {
                           obscureText: true,
                           decoration: InputDecoration(
                             labelText: 'Password',
-                            labelStyle: TextStyle(color: AppColors.secondary),
+                            labelStyle: TextStyle(color: AppColors.quadrary),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: AppColors.blueSkin),
+                              borderSide: BorderSide(color: AppColors.primary),
                             ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide:
-                                  BorderSide(color: AppColors.secondary),
+                                  BorderSide(color: AppColors.quadrary),
                             ),
                             prefixIcon:
-                                Icon(Icons.lock, color: AppColors.secondary),
+                                Icon(Icons.lock, color: AppColors.quadrary),
                           ),
                         ),
                         Positioned(
@@ -101,7 +101,7 @@ class LoginPage extends StatelessWidget {
                             child: const Text(
                               'Forgot?',
                               style: TextStyle(
-                                color: AppColors.blueSkin,
+                                color: AppColors.primary,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -115,22 +115,18 @@ class LoginPage extends StatelessWidget {
                     // Ajout du bouton "Login" qui prend toute la largeur
                     SizedBox(
                       width: double.infinity,  // Prend toute la largeur
-                      
                       child: ElevatedButton(
                         onPressed: () {
-                          print('Login button pressed');
-                          // Ajoute ici la logique pour la connexion
+                          // Lorsque le bouton est cliqué, naviguer vers la page avec la BottomNavBar
+                          Navigator.pushReplacementNamed(context, '/bottomNav');
                         },
-                       
                         style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
+                          backgroundColor: AppColors.primary,
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        
-
                         child: const Text(
                           'Login',
                           style: TextStyle(
@@ -146,7 +142,7 @@ class LoginPage extends StatelessWidget {
                     const Text(
                       'Or, login With...',
                       style: TextStyle(
-                        color: AppColors.secondary,
+                        color: AppColors.quadrary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -160,7 +156,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.secondary.withOpacity(0.2)),
+                                color: AppColors.quadrary.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -177,7 +173,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.secondary.withOpacity(0.2)),
+                                color: AppColors.quadrary.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -194,7 +190,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.secondary.withOpacity(0.2)),
+                                color: AppColors.quadrary.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -212,9 +208,9 @@ class LoginPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'New to MakVita?',
+                          'New to MakVita ? ',
                           style: TextStyle(
-                            color: AppColors.secondary,
+                            color: AppColors.quadrary,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -225,7 +221,7 @@ class LoginPage extends StatelessWidget {
                           child: const Text(
                             "Register",
                             style: TextStyle(
-                              color: AppColors.blueSkin, 
+                              color: AppColors.primary, 
                               fontWeight: FontWeight.bold,
                             ),
                           ),

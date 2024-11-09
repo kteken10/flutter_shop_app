@@ -61,28 +61,28 @@ class SignupPage extends StatelessWidget {
                     const TextField(
                       decoration: InputDecoration(
                         labelText: 'Nom',
-                        labelStyle: TextStyle(color: AppColors.secondary),
+                        labelStyle: TextStyle(color: AppColors.quadrary),
                         focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueSkin),
+                          borderSide: BorderSide(color: AppColors.primary),
                         ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.secondary),
+                          borderSide: BorderSide(color: AppColors.quadrary),
                         ),
-                        prefixIcon: Icon(Icons.person, color: AppColors.secondary),
+                        prefixIcon: Icon(Icons.person, color: AppColors.quadrary),
                       ),
                     ),
                     const SizedBox(height: 10),
                     const TextField(
                       decoration: InputDecoration(
                         labelText: 'Email ID',
-                        labelStyle: TextStyle(color: AppColors.secondary),
+                        labelStyle: TextStyle(color: AppColors.quadrary),
                         focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueSkin),
+                          borderSide: BorderSide(color: AppColors.primary),
                         ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.secondary),
+                          borderSide: BorderSide(color: AppColors.quadrary),
                         ),
-                        prefixIcon: Icon(FontAwesomeIcons.at, color: AppColors.secondary),
+                        prefixIcon: Icon(FontAwesomeIcons.at, color: AppColors.quadrary),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -90,21 +90,21 @@ class SignupPage extends StatelessWidget {
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Mot de passe',
-                        labelStyle: TextStyle(color: AppColors.secondary),
+                        labelStyle: TextStyle(color: AppColors.quadrary),
                         focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.blueSkin),
+                          borderSide: BorderSide(color: AppColors.primary),
                         ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.secondary),
+                          borderSide: BorderSide(color: AppColors.quadrary),
                         ),
-                        prefixIcon: Icon(Icons.lock, color: AppColors.secondary),
+                        prefixIcon: Icon(Icons.lock, color: AppColors.quadrary),
                       ),
                     ),
                     const SizedBox(height: 40),
                     const Text(
                       'Ou, inscrivez-vous avec...',
                       style: TextStyle(
-                        color: AppColors.secondary,
+                        color: AppColors.quadrary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -118,7 +118,7 @@ class SignupPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.secondary.withOpacity(0.2)),
+                                color: AppColors.quadrary.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -135,7 +135,7 @@ class SignupPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.secondary.withOpacity(0.2)),
+                                color: AppColors.quadrary.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -152,7 +152,7 @@ class SignupPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.secondary.withOpacity(0.2)),
+                                color: AppColors.quadrary.withOpacity(0.2)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -201,7 +201,7 @@ class SignupPage extends StatelessWidget {
                         const Text(
                           'Déjà un compte?',
                           style: TextStyle(
-                            color: AppColors.secondary,
+                            color: AppColors.quadrary,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -212,7 +212,7 @@ class SignupPage extends StatelessWidget {
                           child: const Text(
                             " Connectez-vous",
                             style: TextStyle(
-                              color: AppColors.blueSkin,
+                              color: AppColors.primary,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

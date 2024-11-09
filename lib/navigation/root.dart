@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../screens/auth/login.dart';
 import '../screens/auth/signup.dart';
-import '../screens/onboarding/index.dart';
+import '../screens/onboarding/onboarding.dart';
+import '../ui/bottom_nav.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({super.key});
@@ -14,11 +15,12 @@ class RootPage extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/onboarding',  // Page d'initialisation
+      initialRoute: '/onboarding',  
       routes: {
         '/onboarding': (context) => const OnboardingPage(),
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignupPage(),
+        '/bottomNav': (context) => const BottomNavBar(),  
       },
     );
   }

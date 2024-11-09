@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';  
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../constants/colors.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -11,17 +13,15 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _selectedIndex = 0;  // L'index de l'élément sélectionné
+  int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    // Les pages associées à chaque élément de la barre de navigation
     const Center(child: Text('Page 1', style: TextStyle(fontSize: 24))),
     const Center(child: Text('Page 2', style: TextStyle(fontSize: 24))),
     const Center(child: Text('Page 3', style: TextStyle(fontSize: 24))),
     const Center(child: Text('Page 4', style: TextStyle(fontSize: 24))),
   ];
 
-  
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -33,11 +33,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bottom Navigation Bar'),
-        systemOverlayStyle: SystemUiOverlayStyle.light, 
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
-      body: _pages[_selectedIndex],  
+      body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -54,32 +54,40 @@ class _BottomNavBarState extends State<BottomNavBar> {
             borderRadius: BorderRadius.circular(30),
             child: GNav(
               gap: 8,
-              activeColor: Colors.white, 
-              iconSize: 24, 
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
+              activeColor: AppColors.primary, // Couleur pour l'icône et le texte actif
+              iconSize: 22,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               duration: const Duration(milliseconds: 300),
-              color: Colors.black, 
-              tabBackgroundColor: Colors.blue.shade500, 
+            
+              textStyle: const TextStyle(fontSize: 12),
               tabs: const [
                 GButton(
-                  icon: Icons.home,
+                  
+                  icon: FontAwesomeIcons.houseFire,
                   text: 'Home',
+                  iconColor: Colors.black, // Gère la couleur de l'icône inactif
                 ),
                 GButton(
-                  icon: Icons.search,
-                  text: 'Search',
+                   
+                  icon: FontAwesomeIcons.cartShopping,
+                  text: 'Shop',
+                  iconColor: Colors.black, // Gère la couleur de l'icône inactif
                 ),
                 GButton(
-                  icon: Icons.notifications,
+                
+                  icon: FontAwesomeIcons.bell,
                   text: 'Notifications',
+                  iconColor: Colors.black, // Gère la couleur de l'icône inactif
                 ),
                 GButton(
-                  icon: Icons.account_circle,
+                
+                  icon: FontAwesomeIcons.user,
                   text: 'Profile',
+                  iconColor: Colors.black, // Gère la couleur de l'icône inactif
                 ),
               ],
-              selectedIndex: _selectedIndex,  
-              onTabChange: _onItemTapped,  
+              selectedIndex: _selectedIndex,
+              onTabChange: _onItemTapped,
             ),
           ),
         ),
