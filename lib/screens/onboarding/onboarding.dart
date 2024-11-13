@@ -77,16 +77,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                    return Row(
                       mainAxisAlignment: MainAxisAlignment.end, // Aligner l'icône à droite
                       children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushReplacementNamed(context, '/login');
-                          },
-                          child: const Icon(
-                            FontAwesomeIcons.circleChevronRight,  
-                            color: AppColors.secondary,               
-                            size: 24,                            
-                          ),
-                        ),
+                      ElevatedButton(
+  onPressed: () {
+    Navigator.pushReplacementNamed(context, '/login');
+  },
+  style: ElevatedButton.styleFrom(
+    elevation: 4, // Vous pouvez ajuster l'élévation selon vos préférences
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(50), // Arrondir les coins du bouton si vous voulez
+    ),
+  ),
+  child: const Icon(
+    FontAwesomeIcons.circleChevronRight,  
+    color: AppColors.secondary,               
+    size: 24,                            
+  ),
+),
+
                       ],
                     );
                   },
