@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:flutter/services.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';  // Importation des icônes
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';  
 import '../constants/colors.dart';
 import '../screens/favorite/favorite.dart';
 import '../screens/home/home.dart';
@@ -12,6 +11,7 @@ class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
