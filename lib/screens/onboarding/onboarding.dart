@@ -4,15 +4,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../constants/colors.dart';
 
-class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({super.key});
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _OnboardingPageState createState() => _OnboardingPageState();
+  _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _OnboardingScreenState extends State<OnboardingScreen> {
   int currentIndex = 0;
 
   @override
@@ -51,29 +51,29 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
                 child: Onboarding(
                   swipeableBody: [
-                    _buildPage(
+                    _buildScreen(
                       title: "Bienvenue dans notre boutique",
                       body: "Explorez des milliers de produits à portée de main.",
                       image: 'assets/ecommerce1.jpg',
                     ),
-                    _buildPage(
+                    _buildScreen(
                       title: "Facilité d'utilisation",
                       body: "Naviguez aisément grâce à notre interface intuitive.",
                       image: 'assets/ecommerce2.jpg',
                     ),
-                    _buildPage(
+                    _buildScreen(
                       title: "Créez votre compte",
                       body: "Inscrivez-vous en quelques clics pour profiter de nos offres exclusives.",
                       image: 'assets/ecommerce3.jpg',
                     ),
                   ],
                   startIndex: 0,
-                  onPageChanges: (netDragDistance, pagesLength, currentIndex, slideDirection) {
+                  onPageChanges: (netDragDistance, ScreensLength, currentIndex, slideDirection) {
                     setState(() {
                       this.currentIndex = currentIndex;
                     });
                   },
-                  buildHeader: (context, netDragDistance, pagesLength, currentIndex, setIndex, slideDirection) {
+                  buildHeader: (context, netDragDistance, ScreensLength, currentIndex, setIndex, slideDirection) {
                    return Row(
                       mainAxisAlignment: MainAxisAlignment.end, // Aligner l'icône à droite
                       children: [
@@ -90,13 +90,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ],
                     );
                   },
-                  buildFooter: (context, netDragDistance, pagesLength, currentIndex, setIndex, slideDirection) {
+                  buildFooter: (context, netDragDistance, ScreensLength, currentIndex, setIndex, slideDirection) {
                     return Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _buildIndicator(pagesLength, currentIndex),
+                          _buildIndicator(ScreensLength, currentIndex),
                          
                         ],
                       ),
@@ -112,7 +112,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 
-  Widget _buildPage({required String title, required String body, required String image}) {
+  Widget _buildScreen({required String title, required String body, required String image}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -132,10 +132,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 
-  Widget _buildIndicator(int pagesLength, int currentIndex) {
+  Widget _buildIndicator(int ScreensLength, int currentIndex) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: List.generate(pagesLength, (index) {
+      children: List.generate(ScreensLength, (index) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 4.0),
           width: currentIndex == index ? 5.0 : 5.0,

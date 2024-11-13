@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myshop/constants/colors.dart';
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +51,9 @@ class SignupPage extends StatelessWidget {
                       child: Text(
                         'Inscription',
                         style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.primary,
+                          fontSize: 24,
+                          color: AppColors.ternary
+                         
                         ),
                       ),
                     ),

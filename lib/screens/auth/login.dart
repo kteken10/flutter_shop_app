@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myshop/constants/colors.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
   static const Color grayFineColor = Color(0xFF605E8E);
   @override
   Widget build(BuildContext context) {
@@ -51,9 +51,8 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         'Login',
                         style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.primary,
+                          fontSize: 24,
+                          color: AppColors.ternary
                         ),
                       ),
                     ),
@@ -117,7 +116,7 @@ class LoginPage extends StatelessWidget {
                       width: double.infinity,  // Prend toute la largeur
                       child: ElevatedButton(
                         onPressed: () {
-                          // Lorsque le bouton est cliqué, naviguer vers la page avec la BottomNavBar
+                          // Lorsque le bouton est cliqué, naviguer vers la Screen avec la BottomNavBar
                           Navigator.pushReplacementNamed(context, '/bottomNav');
                         },
                         style: ElevatedButton.styleFrom(
@@ -156,7 +155,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.grayFineColor.withOpacity(0.2)),
+                                color: AppColors.grayFineColor.withOpacity(0.6)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -173,7 +172,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.grayFineColor.withOpacity(0.2)),
+                                color: AppColors.grayFineColor.withOpacity(0.6)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(
@@ -190,7 +189,7 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: AppColors.grayFineColor.withOpacity(0.2)),
+                                color: AppColors.grayFineColor.withOpacity(0.6)),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Center(

@@ -5,8 +5,8 @@ import '../screens/auth/signup.dart';
 import '../screens/onboarding/onboarding.dart';
 import '../ui/bottom_nav.dart';
 
-class RootPage extends StatelessWidget {
-  const RootPage({super.key});
+class RootScreen extends StatelessWidget {
+  const RootScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,9 @@ class RootPage extends StatelessWidget {
       ),
       initialRoute: '/onboarding',  
       routes: {
-        '/onboarding': (context) => const OnboardingPage(),
-        '/login': (context) => const LoginPage(),
-        '/signup': (context) => const SignupPage(),
+        '/onboarding': (context) => const OnboardingScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignupScreen(),
         '/bottomNav': (context) => const BottomNavBar(),  
       },
     );
