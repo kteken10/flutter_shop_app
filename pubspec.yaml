@@ -70,6 +70,7 @@ flutter:
     - assets/ecommerce2.jpg
     - assets/ecommerce3.jpg
     - assets/makvita.jpg
+    - assets/iphone_recto_verso.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

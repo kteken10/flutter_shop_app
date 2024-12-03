@@ -6,6 +6,7 @@ class InputField extends StatelessWidget {
   final String label;
   final TextInputType keyboardType;
   final bool obscureText;
+  final bool showSearchIcon; // Propriété booléenne pour afficher l'icône
 
   const InputField({
     super.key,
@@ -13,6 +14,7 @@ class InputField extends StatelessWidget {
     this.label = '',  
     required this.keyboardType,
     required this.obscureText,
+    this.showSearchIcon = false, // Par défaut, pas d'icône de recherche
   });
 
   @override
@@ -44,14 +46,18 @@ class InputField extends StatelessWidget {
                 vertical: 12.0, 
                 horizontal: 16.0, // Padding horizontal ajusté ici
               ),
+              // Ajouter une icône à l'extrémité droite si showSearchIcon est true
+              suffixIcon: showSearchIcon 
+                  ? const Icon(Icons.search_rounded, color: AppColors.grayFineColor,size: 30,)
+                  : null,
               // Ajouter des coins arrondis
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16.0),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16.0),
-                borderSide: BorderSide(color: AppColors.primary, width: 0.5),
+                borderSide: const BorderSide(color: AppColors.primary, width: 1),
               ),
             ),
           ),

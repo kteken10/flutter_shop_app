@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/constants/colors.dart';
 import '../../ui/input_field.dart';
+import '../../ui/promo_zone.dart'; // Importez PromoZone ici
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,7 +14,6 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        automaticallyImplyLeading: false, // Désactiver la flèche de retour
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsetsDirectional.all(8),
+              padding: const EdgeInsetsDirectional.all(4),
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(width: 1, color: AppColors.grayFineColor),
@@ -51,11 +51,11 @@ class HomeScreen extends StatelessWidget {
               obscureText: false,
             ),
             const SizedBox(height: 20),
-            const Center(
-              child: Text(
-                'Home Screen',
-                style: TextStyle(fontSize: 24),
-              ),
+            // Utilisation de PromoZone à la place du texte
+            const PromoZone(
+              imagePath: 'iphone_recto_verso.png', 
+              text: 'Clearance Sales',
+             
             ),
           ],
         ),
