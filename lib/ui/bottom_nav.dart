@@ -37,6 +37,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
+      
         padding: const EdgeInsets.all(16.0),
         child: Container(
           decoration: BoxDecoration(
@@ -51,9 +52,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ],
           ),
           child: ClipRRect(
+          
             borderRadius: BorderRadius.circular(30),
             child: GNav(
-              gap: 8,
+              backgroundColor: Colors.white,
+              // gap: 8,
               activeColor: AppColors.primary, // Couleur pour l'icône et le texte actif
               iconSize: 28,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
