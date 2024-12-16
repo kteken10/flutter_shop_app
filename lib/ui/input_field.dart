@@ -4,17 +4,19 @@ import '../constants/colors.dart';
 class InputField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
+  final String? hintText;
   final TextInputType keyboardType;
   final bool obscureText;
-  final bool showSearchIcon; // Propriété booléenne pour afficher l'icône
+  final bool showSearchIcon; 
 
   const InputField({
     super.key,
     required this.controller,
-    this.label = '',  
+    this.label = '',
+    this.hintText, 
     required this.keyboardType,
     required this.obscureText,
-    this.showSearchIcon = false, // Par défaut, pas d'icône de recherche
+    this.showSearchIcon = false, 
   });
 
   @override
@@ -38,19 +40,26 @@ class InputField extends StatelessWidget {
             obscureText: obscureText,
             style: const TextStyle(color: Colors.black),
             decoration: InputDecoration(
-              // Ajouter une couleur de fond
+            
               fillColor: AppColors.quadrary.withOpacity(0.1),
               filled: true,
-              // Ajuster le padding interne (ajout de padding horizontal)
+             
               contentPadding: const EdgeInsets.symmetric(
-                vertical: 12.0, 
-                horizontal: 16.0, // Padding horizontal ajusté ici
+                vertical: 12.0,
+                horizontal: 16.0, 
               ),
-              // Ajouter une icône à l'extrémité droite si showSearchIcon est true
-              suffixIcon: showSearchIcon 
-                  ? const Icon(Icons.search_rounded, color: AppColors.grayFineColor,size: 30,)
+            
+              hintText: hintText,
+              hintStyle: const TextStyle(color: AppColors.grayFineColor),
+           
+              suffixIcon: showSearchIcon
+                  ? const Icon(
+                      Icons.search_rounded,
+                      color: AppColors.grayFineColor,
+                      size: 30,
+                    )
                   : null,
-              // Ajouter des coins arrondis
+             
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16.0),
                 borderSide: const BorderSide(color: Colors.transparent),

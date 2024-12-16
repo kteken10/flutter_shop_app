@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/constants/colors.dart';
+import 'package:myshop/ui/text.dart';
 import '../../ui/input_field.dart';
+import '../../ui/product_category.dart';
 import '../../ui/promo_zone.dart'; // Importez PromoZone ici
 
 class HomeScreen extends StatelessWidget {
@@ -49,14 +51,37 @@ class HomeScreen extends StatelessWidget {
               controller: searchController,
               keyboardType: TextInputType.text,
               obscureText: false,
+              showSearchIcon: true,
+              hintText: 'search',
             ),
             const SizedBox(height: 20),
             // Utilisation de PromoZone à la place du texte
             const PromoZone(
               imagePath: 'iphone_recto_verso.png', 
               text: 'Clearance Sales',
-             
             ),
+             const SizedBox(height: 10),
+             const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+              TextWidget(
+              'Categories',
+              style: TextStyle(
+                color:Colors.black,
+              ),
+
+             ),
+             Icon(
+              Icons.remove_red_eye,
+              color:  AppColors.primary
+             )
+
+              
+             ],),
+             const ProductCategory(
+              categories: ["All","SmartPhone", "HeadPhone", "Laptop"],
+            )
+             
           ],
         ),
       ),

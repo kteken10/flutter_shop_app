@@ -28,9 +28,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Column(
             children: [
               Container(
-                height: screenHeight - 32,
-                // padding: const EdgeInsets.all(16.0),
-                padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
+                constraints: BoxConstraints(
+                  maxHeight: screenHeight-32 , // Utilise 80% de la hauteur de l'\u00e9cran
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 decoration: BoxDecoration(
                   color: AppColors.whiteContainer,
                   borderRadius: BorderRadius.circular(30),
@@ -53,16 +54,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   swipeableBody: [
                     _buildScreen(
                       title: "Bienvenue dans notre boutique",
-                      body: "Explorez des milliers de produits à portée de main.",
+                      body: "Explorez des milliers de produits \u00e0 port\u00e9e de main.",
                       image: 'assets/ecommerce1.jpg',
                     ),
                     _buildScreen(
-                      title: "Facilité d'utilisation",
-                      body: "Naviguez aisément grâce à notre interface intuitive.",
+                      title: "Facilit\u00e9 d'utilisation",
+                      body: "Naviguez ais\u00e9ment gr\u00e2ce \u00e0 notre interface intuitive.",
                       image: 'assets/ecommerce2.jpg',
                     ),
                     _buildScreen(
-                      title: "Créez votre compte",
+                      title: "Cr\u00e9ez votre compte",
                       body: "Inscrivez-vous en quelques clics pour profiter de nos offres exclusives.",
                       image: 'assets/ecommerce3.jpg',
                     ),
@@ -75,25 +76,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   },
                   buildHeader: (context, netDragDistance, ScreensLength, currentIndex, setIndex, slideDirection) {
                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.end, // Aligner l'icône à droite
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                      ElevatedButton(
-  onPressed: () {
-    Navigator.pushReplacementNamed(context, '/login');
-  },
-  style: ElevatedButton.styleFrom(
-    elevation: 4, // Vous pouvez ajuster l'élévation selon vos préférences
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(50), // Arrondir les coins du bouton si vous voulez
-    ),
-  ),
-  child: const Icon(
-    FontAwesomeIcons.circleChevronRight,  
-    color: AppColors.secondary,               
-    size: 24,                            
-  ),
-),
-
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushReplacementNamed(context, '/login');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 4,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          child: const Icon(
+                            FontAwesomeIcons.circleChevronRight,  
+                            color: AppColors.secondary,               
+                            size: 24,                            
+                          ),
+                        ),
                       ],
                     );
                   },
@@ -104,7 +104,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _buildIndicator(ScreensLength, currentIndex),
-                         
                         ],
                       ),
                     );
@@ -120,29 +119,35 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget _buildScreen({required String title, required String body, required String image}) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.asset(image),
-        const SizedBox(height: 20),
-        Text(
-          title,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          body,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 16),
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            image,
+            height: MediaQuery.of(context).size.height * 0.3, // Limiter la taille de l'image
+            fit: BoxFit.contain,
+          ),
+          const SizedBox(height: 20),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            body,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 16),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildIndicator(int ScreensLength, int currentIndex) {
+  Widget _buildIndicator(int screensLength, int currentIndex) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: List.generate(ScreensLength, (index) {
+      children: List.generate(screensLength, (index) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 4.0),
           width: currentIndex == index ? 5.0 : 5.0,
@@ -155,6 +160,4 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       }),
     );
   }
-
-
 }

@@ -4,80 +4,65 @@ import 'package:myshop/ui/text.dart';
 import '../constants/colors.dart';
 
 class PromoZone extends StatelessWidget {
-  final String imagePath; // Chemin de l'image
-  final Color backgroundColor; // Couleur de fond
-  final String text; // Texte à afficher du côté gauche
+  final String imagePath;
+  final Color backgroundColor;
+  final String text;
 
   const PromoZone({
     super.key,
     required this.imagePath,
-    required this.text, // Texte obligatoire
-    this.backgroundColor = AppColors.primary, // Couleur par défaut
+    required this.text,
+    this.backgroundColor = AppColors.primary,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150, // Hauteur du rectangle
-      width: double.infinity, // Prend toute la largeur disponible
+      height: 140,
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      width: double.infinity,
       decoration: BoxDecoration(
-        color: backgroundColor, // Couleur de fond
-        borderRadius: BorderRadius.circular(16), // Coins arrondis
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         children: [
-          // Colonne avec texte et rectangle en dessous
           Expanded(
-            flex: 1, // Prend la moitié de la largeur
+            flex: 1,
             child: Padding(
-              padding: const EdgeInsets.only(top: 8.0, left: 8.0), // Espacement en haut et à gauche
+              padding: const EdgeInsets.only(top: 8.0, left: 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Texte blanc positionné en haut à l'extrémité gauche
                   TextWidget(
                     text,
-                    typeText: TextType.text3Xl,
+                    typeText: TextType.text2Xl,
                     style: const TextStyle(
-                      color: Colors.white, // Couleur du texte
+                      color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 8), // Espacement entre le texte et le rectangle
-                  // Rectangle sous le texte
-                 Container(
-  height: 40, // Hauteur du rectangle
-  width: 120, // Largeur du rectangle
-  decoration: BoxDecoration(
-    color: Colors.white, // Couleur du rectangle
-    borderRadius: BorderRadius.circular(20), // Coins arrondis
-  ),
-  alignment: Alignment.center, // Centre le texte dans le container
-  child: const Text(
-    'Up To 50%', // Texte à afficher dans le rectangle
-    style: TextStyle(
-      color: AppColors.primary, // Couleur du texte
-      fontSize: 16, // Taille de la police
-    ),
-  ),
-)
-
+                  const SizedBox(height: 26),
+                  Container(
+                    height: 35,
+                    width: 120,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Up To 50%',
+                      style: TextStyle(
+                        color: AppColors.primary,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
           ),
-          // L'image prenant la moitié droite
-          Expanded(
-            flex: 1, // Prend la moitié de la largeur
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(16),
-                bottomRight: Radius.circular(16),
-              ), // Coins arrondis uniquement à droite
-              child: Image.asset(
-                'assets/$imagePath', // Chemin de l'image
-                fit: BoxFit.fitHeight, // Ajuster la hauteur uniquement
-              ),
-            ),
+          Image.asset(
+            'assets/$imagePath',
           ),
         ],
       ),
