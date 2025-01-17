@@ -3,7 +3,7 @@ import 'package:myshop/constants/colors.dart';
 import 'package:myshop/ui/text.dart';
 import '../../ui/input_field.dart';
 import '../../ui/product_category.dart';
-import '../../ui/promo_zone.dart'; // Importez PromoZone ici
+import '../../ui/promo_zone.dart'; 
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -54,8 +54,9 @@ class HomeScreen extends StatelessWidget {
               showSearchIcon: true,
               hintText: 'search',
             ),
+           
             const SizedBox(height: 20),
-            // Utilisation de PromoZone à la place du texte
+           
             const PromoZone(
               imagePath: 'iphone_recto_verso.png', 
               text: 'Clearance Sales',
