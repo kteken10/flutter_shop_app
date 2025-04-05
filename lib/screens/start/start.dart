@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
+import '../../ui/button.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenSize = MediaQuery.of(context).size;
+    const buttonHeight = 40.0; // Hauteur commune pour les deux éléments
 
     return Scaffold(
       body: Stack(
         children: [
-          // Fond dégradé orange
+          // Fond gradient (conservé comme dans votre version originale)
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -29,46 +31,67 @@ class StartScreen extends StatelessWidget {
             ),
           ),
 
-          // Image centrée prenant la majeure partie de l'écran
+          // Image centrale
           Center(
-            child: Container(
-              height: screenHeight - 180, // Hauteur écran - marge pour le bouton
-              padding: const EdgeInsets.all(20),
+            child: SizedBox(
+              height: screenSize.height * 0.79,
+              width: screenSize.width * 0.9,
               child: Image.asset(
-                'assets/familysmile.png',
-                fit: BoxFit.cover
-             
+                'assets/images/girl_smile.png',
+                fit: BoxFit.cover,
               ),
             ),
           ),
-
-          // Bouton en bas de l'écran
+          
+          // Bouton et icône en bas
           Positioned(
             bottom: 40,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: AppColors.primary,
-                  minimumSize: const Size(250, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  elevation: 5,
-                ),
-                onPressed: () {
-                  // Navigation vers l'écran suivant
-                },
-                child: const Text(
-                  "Let's Get Started",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            left: 20,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Bouton principal
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    height: buttonHeight,
+                    child: Button(
+                      text: "Let's Get Started",
+                      onPressed: () {
+                        // Logique de navigation
+                      },
+                      height: buttonHeight,
+                      borderRadius: 30,
+                    ),
                   ),
                 ),
-              ),
+                
+                // Cercle avec icône
+                Container(
+                  width: buttonHeight,
+                  height: buttonHeight,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 6,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_forward, size: 24),
+                    color: AppColors.primary,
+                    onPressed: () {
+                      // Même action que le bouton principal
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],
