@@ -43,7 +43,7 @@ class AppTypography {
 
   static TextStyle text2Xl(BuildContext context) {
     return const TextStyle(
-      fontSize: 24, // 1.5rem
+      fontSize: 22, // 1.5rem
       height: 2.0, // line-height: 2rem
       fontWeight: FontWeight.normal,
     );
@@ -51,7 +51,7 @@ class AppTypography {
 
   static TextStyle text3Xl(BuildContext context) {
     return const TextStyle(
-      fontSize: 30, // 1.875rem
+      fontSize: 25, // 1.875rem
      height: 1.5,
       fontWeight: FontWeight.normal,
     );
@@ -59,7 +59,7 @@ class AppTypography {
 
   static TextStyle text4Xl(BuildContext context) {
     return const TextStyle(
-      fontSize: 36, // 2.25rem
+      fontSize: 28, // 2.25rem
      height: 1.5,
       fontWeight: FontWeight.normal,
     );

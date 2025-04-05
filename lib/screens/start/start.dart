@@ -8,7 +8,7 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    const buttonHeight = 40.0; // Hauteur commune pour les deux éléments
+    const buttonHeight = 50.0; // Hauteur commune pour les deux éléments
 
     return Scaffold(
       body: Stack(
@@ -20,13 +20,13 @@ class StartScreen extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  AppColors.primary.withOpacity(0.1),
                   AppColors.primary.withOpacity(0.3),
+                  AppColors.primary.withOpacity(0.4),
                   AppColors.primary.withOpacity(0.6),
                   AppColors.primary,
                   Color.lerp(AppColors.primary, AppColors.ternary, 0.1)!,
                 ],
-                stops: const [0.0, 0.3, 0.6, 0.8, 1.0],
+                stops: const [0.0, 0.3, 0.6, 0.9, 1.0],
               ),
             ),
           ),
@@ -42,7 +42,56 @@ class StartScreen extends StatelessWidget {
               ),
             ),
           ),
-          
+
+          // Texte "FASHION" positionné sur l'image
+          Positioned(
+            top: screenSize.height * 0.4, // Ajustez la position verticale
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Première ligne : FAS
+                  const Text(
+                    "FAS",
+                    style: TextStyle(
+                      fontSize: 140, // Taille du texte
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                       letterSpacing: 20.0, // Espacement horizontal des lettres
+                    ),
+                  ),
+                  // Deuxième ligne : HION
+                  RichText(
+                    text: const TextSpan(
+                      style: TextStyle(
+                        fontSize:100, // Taille du texte
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto', // Facultatif : police personnalisée
+                         letterSpacing: 20.0, // Espacement horizontal des lettres
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "H",
+                          style: TextStyle(color: AppColors.primary), // Orange
+                        ),
+                        TextSpan(
+                          text: "IO",
+                          style: TextStyle(color: Colors.white), // Blanc
+                        ),
+                        TextSpan(
+                          text: "N",
+                          style: TextStyle(color: AppColors.primary), // Orange
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
           // Bouton et icône en bas
           Positioned(
             bottom: 40,
@@ -55,7 +104,7 @@ class StartScreen extends StatelessWidget {
                 // Bouton principal
                 Expanded(
                   child: Container(
-                    margin: const EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 0),
                     height: buttonHeight,
                     child: Button(
                       text: "Let's Get Started",
@@ -67,7 +116,7 @@ class StartScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                
+
                 // Cercle avec icône
                 Container(
                   width: buttonHeight,
@@ -87,7 +136,7 @@ class StartScreen extends StatelessWidget {
                     icon: const Icon(Icons.arrow_forward, size: 24),
                     color: AppColors.primary,
                     onPressed: () {
-                      // Même action que le bouton principal
+                      // Logique de navigation
                     },
                   ),
                 ),
