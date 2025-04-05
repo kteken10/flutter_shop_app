@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/auth/login.dart';
 import '../screens/auth/signup.dart';
-import '../screens/onboarding/onboarding.dart';
+import '../screens/start/start.dart';
 import '../ui/bottom_nav.dart';
 
 class RootScreen extends StatelessWidget {
@@ -15,9 +15,9 @@ class RootScreen extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/onboarding',  
+      initialRoute: '/start',  
       routes: {
-        '/onboarding': (context) => const OnboardingScreen(),
+        '/start': (context) => const StartScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/bottomNav': (context) => const BottomNavBar(),  
