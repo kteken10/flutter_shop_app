@@ -8,7 +8,8 @@ class Button extends StatelessWidget {
   final Color textColor;
   final double height;
   final double borderRadius;
-  final IconData? icon; // Nouvelle propriété pour l'icône
+  final IconData? icon;
+  final Color? borderColor;
 
   const Button({
     super.key,
@@ -18,7 +19,8 @@ class Button extends StatelessWidget {
     this.textColor = AppColors.primary,
     this.height = 50,
     this.borderRadius = 30,
-    this.icon, // Icône facultative
+    this.icon,
+    this.borderColor
   });
 
   @override
@@ -27,31 +29,36 @@ class Button extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         elevation: 0,
-        shadowColor: Colors.transparent ,
+        shadowColor: Colors.transparent,
         foregroundColor: textColor,
         surfaceTintColor: Colors.transparent,
         minimumSize: Size.fromHeight(height),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
+          side: BorderSide(
+            color: borderColor ?? AppColors.grayFineColor.withOpacity(0.4), // Couleur de la bordure
+            width: 1.0, // Ajout d'une largeur pour la bordure
+          ),
         ),
       ),
       onPressed: onPressed,
       child: Row(
-        
         children: [
           if (icon != null) ...[
-            Icon(icon, size: 20), // Affiche l'icône si elle est définie
+            Icon(icon, size: 20),
             const SizedBox(width: 10),
           ],
           Expanded(
             child: Center(
               child: Text(
                 text,
-                style: TextStyle(color: textColor, fontSize: 16),
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
-         
         ],
       ),
     );
