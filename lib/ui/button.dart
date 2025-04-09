@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../constants/colors.dart';
 
 class Button extends StatelessWidget {
@@ -9,7 +10,9 @@ class Button extends StatelessWidget {
   final double height;
   final double borderRadius;
   final IconData? icon;
+  final String? svgPath;
   final Color? borderColor;
+  final Color? svgColor;
 
   const Button({
     super.key,
@@ -20,7 +23,9 @@ class Button extends StatelessWidget {
     this.height = 50,
     this.borderRadius = 30,
     this.icon,
-    this.borderColor
+    this.svgPath,
+    this.borderColor,
+    this.svgColor,
   });
 
   @override
@@ -36,18 +41,31 @@ class Button extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
           side: BorderSide(
-            color: borderColor ?? AppColors.grayFineColor.withOpacity(0.4), // Couleur de la bordure
-            width: 1.0, // Ajout d'une largeur pour la bordure
+            color: borderColor ?? AppColors.grayFineColor.withOpacity(0.4),
+            width: 1.0,
           ),
         ),
       ),
       onPressed: onPressed,
       child: Row(
         children: [
-          if (icon != null) ...[
-            Icon(icon, size: 20),
-            const SizedBox(width: 10),
-          ],
+          if (svgPath != null) 
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: SvgPicture.asset(
+                svgPath!,
+                height: 20,
+                width: 20,
+                colorFilter: svgColor != null 
+                    ? ColorFilter.mode(svgColor!, BlendMode.srcIn)
+                    : null,
+              ),
+            )
+          else if (icon != null)
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Icon(icon, size: 20),
+            ),
           Expanded(
             child: Center(
               child: Text(

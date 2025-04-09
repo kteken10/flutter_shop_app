@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../constants/colors.dart';
 import '../../ui/button.dart';
 
@@ -24,17 +25,18 @@ class SocialButtons extends StatelessWidget {
         _buildDividerWithText('OR'),
         const SizedBox(height: 20),
 
-        // Boutons sociaux
+      
         Button(
-          icon: Icons.apple,
+          svgPath: 'assets/images/apple.svg', 
           text: 'Continue With Apple',
           onPressed: onApplePressed ?? () {},
           backgroundColor: Colors.white,
           textColor: Colors.black,
+          svgColor: Colors.black, 
         ),
         const SizedBox(height: 10),
         Button(
-          icon: Icons.g_mobiledata,
+          svgPath: 'assets/images/google.svg',
           text: 'Continue With Google',
           onPressed: onGooglePressed ?? () {},
           backgroundColor: Colors.white,
@@ -42,11 +44,12 @@ class SocialButtons extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Button(
-          icon: Icons.facebook,
+          svgPath: 'assets/images/facebook.svg', 
           text: 'Continue With Facebook',
           onPressed: onFacebookPressed ?? () {},
           backgroundColor: Colors.white,
           textColor: Colors.black,
+          svgColor: Colors.blue,
         ),
         const SizedBox(height: 20),
 
