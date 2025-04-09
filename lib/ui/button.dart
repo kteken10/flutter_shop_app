@@ -6,8 +6,9 @@ class Button extends StatelessWidget {
   final VoidCallback onPressed;
   final Color backgroundColor;
   final Color textColor;
-  final double height; // Nouveau paramètre pour la hauteur
+  final double height;
   final double borderRadius;
+  final IconData? icon; // Nouvelle propriété pour l'icône
 
   const Button({
     super.key,
@@ -15,8 +16,9 @@ class Button extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor = Colors.white,
     this.textColor = AppColors.primary,
-    this.height = 40, // Hauteur par défaut de 60 (identique au cercle)
-    this.borderRadius = 30, // Augmenté pour correspondre au nouveau design
+    this.height = 50,
+    this.borderRadius = 30,
+    this.icon, // Icône facultative
   });
 
   @override
@@ -24,19 +26,33 @@ class Button extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
+        elevation: 0,
+        shadowColor: Colors.transparent ,
         foregroundColor: textColor,
-        minimumSize: Size.fromHeight(height), // Utilisation de la hauteur fixe
+        surfaceTintColor: Colors.transparent,
+        minimumSize: Size.fromHeight(height),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
       onPressed: onPressed,
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 16,
-          
-        ),
+      child: Row(
+        
+        children: [
+          if (icon != null) ...[
+            Icon(icon, size: 20), // Affiche l'icône si elle est définie
+            const SizedBox(width: 10),
+          ],
+          Expanded(
+            child: Center(
+              child: Text(
+                text,
+                style: TextStyle(color: textColor, fontSize: 16),
+              ),
+            ),
+          ),
+         
+        ],
       ),
     );
   }

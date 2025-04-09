@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../screens/auth/login.dart';
-import '../screens/auth/signup.dart';
+import '../screens/auth/auth.dart';
+
 import '../screens/start/start.dart';
 import '../ui/bottom_nav.dart';
 
@@ -18,8 +18,8 @@ class RootScreen extends StatelessWidget {
       initialRoute: '/start',  
       routes: {
         '/start': (context) => const StartScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/signup': (context) => const SignupScreen(),
+        '/auth': (context) => const AuthScreen(),
+       
         '/bottomNav': (context) => const BottomNavBar(),  
       },
     );

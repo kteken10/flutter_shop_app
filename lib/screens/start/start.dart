@@ -8,7 +8,7 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    const buttonHeight = 50.0; // Hauteur commune pour les deux éléments
+  
 
     return Scaffold(
       body: Stack(
@@ -105,13 +105,13 @@ class StartScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     margin: const EdgeInsets.only(right: 0),
-                    height: buttonHeight,
+                 
                     child: Button(
                       text: "Let's Get Started",
                       onPressed: () {
-                        // Logique de navigation
+                        Navigator.pushNamed(context, '/auth');
                       },
-                      height: buttonHeight,
+                    
                       borderRadius: 30,
                     ),
                   ),
@@ -119,8 +119,8 @@ class StartScreen extends StatelessWidget {
 
                 // Cercle avec icône
                 Container(
-                  width: buttonHeight,
-                  height: buttonHeight,
+                  width: 50,
+                 
                   decoration: BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
@@ -136,7 +136,7 @@ class StartScreen extends StatelessWidget {
                     icon: const Icon(Icons.arrow_forward, size: 24),
                     color: AppColors.primary,
                     onPressed: () {
-                      // Logique de navigation
+                      Navigator.pushNamed(context, '/auth');
                     },
                   ),
                 ),
