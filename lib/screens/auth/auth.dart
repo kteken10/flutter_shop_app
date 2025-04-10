@@ -41,9 +41,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    AppColors.primary.withOpacity(0.3),
+                    AppColors.primary.withOpacity(0.5),
                     AppColors.primary.withOpacity(0.4),
-                    AppColors.primary.withOpacity(0.6),
+                    AppColors.primary.withOpacity(0.4),
                     AppColors.primary,
                     Color.lerp(AppColors.primary, AppColors.ternary, 0.1)!,
                   ],

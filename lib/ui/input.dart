@@ -35,23 +35,23 @@ class Input extends StatelessWidget {
         hintText: hintText,
         suffixIcon: suffixIcon,
         border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: AppColors.primary),
         ),
         enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: AppColors.grayFineColor ),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: AppColors.primary),
         ),
         errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: Colors.red),
         ),
         focusedErrorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: Colors.red),
         ),
       ),
