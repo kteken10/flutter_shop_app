@@ -36,6 +36,9 @@ class Input extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         labelText: labelText,
+        labelStyle: const TextStyle(
+          fontSize: 12
+        ),
         hintText: hintText,
         suffixIcon: suffixIcon != null
             ? IconButton(
