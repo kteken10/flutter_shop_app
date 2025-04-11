@@ -7,9 +7,11 @@ class Input extends StatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onChanged;
   final FormFieldValidator<String>? validator;
+  final VoidCallback? onSuffixIconPressed; // Callback pour l'icône suffix
 
   const Input({
     super.key,
@@ -18,9 +20,11 @@ class Input extends StatelessWidget {
     this.controller,
     this.hintText,
     this.suffixIcon,
+    this.prefixIcon,
     this.keyboardType,
     this.onChanged,
     this.validator,
+    this.onSuffixIconPressed,
   });
 
   @override
@@ -33,14 +37,20 @@ class Input extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
-        suffixIcon: suffixIcon,
+        suffixIcon: suffixIcon != null
+            ? IconButton(
+                icon: suffixIcon!,
+                onPressed: onSuffixIconPressed,
+              )
+            : null,
+        prefixIcon: prefixIcon,
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: AppColors.primary),
         ),
         enabledBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(30)),
-          borderSide: BorderSide(color: AppColors.grayFineColor ),
+          borderSide: BorderSide(color: AppColors.grayFineColor),
         ),
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(30)),

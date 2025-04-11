@@ -13,6 +13,7 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _obscurePassword = true; // État pour masquer/afficher le mot de passe
 
   @override
   void dispose() {
@@ -23,14 +24,14 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20),
+    return Container(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Input(
             controller: _emailController,
             labelText: 'Email',
+            prefixIcon: const Icon(Icons.email, color: AppColors.primary),
             keyboardType: TextInputType.emailAddress,
             onChanged: (value) => debugPrint('Email: $value'),
           ),
@@ -38,8 +39,18 @@ class _SignUpFormState extends State<SignUpForm> {
           Input(
             controller: _passwordController,
             labelText: 'Password',
-            obscureText: true,
+            prefixIcon: const Icon(Icons.lock, color: AppColors.primary),
+            suffixIcon: Icon(
+              _obscurePassword ? Icons.visibility_off : Icons.visibility,
+              color: AppColors.primary,
+            ),
+            obscureText: _obscurePassword,
             onChanged: (value) => debugPrint('Password: $value'),
+            onSuffixIconPressed: () {
+              setState(() {
+                _obscurePassword = !_obscurePassword;
+              });
+            },
           ),
           const SizedBox(height: 20),
           Button(
