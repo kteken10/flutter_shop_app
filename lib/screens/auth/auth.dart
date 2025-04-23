@@ -41,9 +41,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    AppColors.primary.withOpacity(0.3),
+                    AppColors.primary.withOpacity(0.5),
                     AppColors.primary.withOpacity(0.4),
-                    AppColors.primary.withOpacity(0.6),
+                    AppColors.primary.withOpacity(0.4),
                     AppColors.primary,
                     Color.lerp(AppColors.primary, AppColors.ternary, 0.1)!,
                   ],
@@ -56,9 +56,9 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
             ),
 
-            // Main content - Modifié pour prendre toute la hauteur
+          
             Positioned(
-              top: screenSize.height * 0.5, // Commence à 50% de l'écran
+              top: screenSize.height * 0.5, 
               bottom: 0, // S'étend jusqu'en bas
               left: 0,
               right: 0,
@@ -90,7 +90,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   child: Button(
                                     text: 'Login',
                                     onPressed: () => setState(() => isLogin = true),
-                                    backgroundColor: isLogin ? AppColors.primary : Colors.grey[200]!,
+                                    backgroundColor: isLogin ? AppColors.primary : AppColors.white,
                                     textColor: isLogin ? Colors.white : Colors.black,
                                   ),
                                 ),
@@ -99,7 +99,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   child: Button(
                                     text: 'Sign Up',
                                     onPressed: () => setState(() => isLogin = false),
-                                    backgroundColor: !isLogin ? AppColors.primary : Colors.grey[200]!,
+                                    backgroundColor: !isLogin ? AppColors.primary : AppColors.white,
                                     textColor: !isLogin ? Colors.white : Colors.black,
                                   ),
                                 ),

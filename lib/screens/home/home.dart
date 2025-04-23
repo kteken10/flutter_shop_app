@@ -3,7 +3,7 @@ import 'package:myshop/constants/colors.dart';
 import 'package:myshop/ui/text.dart';
 import '../../ui/input_field.dart';
 import '../../ui/product_category.dart';
-import '../../ui/promo_zone.dart'; 
+ 
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -57,10 +57,7 @@ class HomeScreen extends StatelessWidget {
            
             const SizedBox(height: 20),
            
-            const PromoZone(
-              imagePath: 'iphone_recto_verso.png', 
-              text: 'Clearance Sales',
-            ),
+        
              const SizedBox(height: 10),
              const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

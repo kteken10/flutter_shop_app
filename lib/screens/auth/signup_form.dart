@@ -13,6 +13,7 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _obscurePassword = true; 
 
   @override
   void dispose() {
@@ -23,36 +24,45 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Input(
-            controller: _emailController,
-            labelText: 'Email',
-            keyboardType: TextInputType.emailAddress,
-            onChanged: (value) => debugPrint('Email: $value'),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Input(
+          controller: _emailController,
+          labelText: 'Email',
+          
+          prefixIcon: const Icon(Icons.email, color: AppColors.grayFineColor),
+          keyboardType: TextInputType.emailAddress,
+          onChanged: (value) => debugPrint('Email: $value'),
+        ),
+        const SizedBox(height: 16),
+        Input(
+          controller: _passwordController,
+          labelText: '',
+          prefixIcon: const Icon(Icons.lock, color: AppColors.grayFineColor),
+          suffixIcon: Icon(
+            _obscurePassword ? Icons.visibility_off : Icons.visibility,
+            color: AppColors.grayFineColor,
           ),
-          const SizedBox(height: 16),
-          Input(
-            controller: _passwordController,
-            labelText: 'Password',
-            obscureText: true,
-            onChanged: (value) => debugPrint('Password: $value'),
-          ),
-          const SizedBox(height: 20),
-          Button(
-            text: 'Sign Up',
-            onPressed: () {
-              debugPrint('Submitted - Email: ${_emailController.text}');
-              debugPrint('Submitted - Password: ${_passwordController.text}');
-            },
-            backgroundColor: AppColors.primary,
-            textColor: Colors.white,
-          ),
-        ],
-      ),
+          obscureText: _obscurePassword,
+          onChanged: (value) => debugPrint('Password: $value'),
+          onSuffixIconPressed: () {
+            setState(() {
+              _obscurePassword = !_obscurePassword;
+            });
+          },
+        ),
+        const SizedBox(height: 20),
+        Button(
+          text: 'Sign Up',
+          onPressed: () {
+            debugPrint('Submitted - Email: ${_emailController.text}');
+            debugPrint('Submitted - Password: ${_passwordController.text}');
+          },
+          backgroundColor: AppColors.primary,
+          textColor: Colors.white,
+        ),
+      ],
     );
   }
 }

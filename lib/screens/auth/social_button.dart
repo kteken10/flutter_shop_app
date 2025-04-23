@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../constants/colors.dart';
 import '../../ui/button.dart';
 
@@ -25,7 +24,6 @@ class SocialButtons extends StatelessWidget {
         _buildDividerWithText('OR'),
         const SizedBox(height: 20),
 
-      
         Button(
           svgPath: 'assets/images/apple.svg', 
           text: 'Continue With Apple',
@@ -53,26 +51,31 @@ class SocialButtons extends StatelessWidget {
         ),
         const SizedBox(height: 20),
 
-        // Ligne "OR Continue as a guest"
+        // Ligne "OR Continue as a guest" avec guest cliquable
         _buildDividerWithText(
-          RichText(
-            text: const TextSpan(
-              children: [
-                TextSpan(
-                  text: 'OR Continue as a ',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/bottomNav');
+            },
+            child: RichText(
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'OR Continue as a ',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                TextSpan(
-                  text: 'guest',
-                  style: TextStyle(
-                    color: AppColors.ternary,
-                    fontWeight: FontWeight.bold,
+                  TextSpan(
+                    text: 'guest',
+                    style: TextStyle(
+                      color: AppColors.ternary,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
