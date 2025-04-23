@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';  
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../constants/colors.dart';
 import '../screens/favorite/favorite.dart';
 import '../screens/home/home.dart';
@@ -11,7 +11,6 @@ class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
@@ -34,63 +33,54 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
-      
         padding: const EdgeInsets.all(16.0),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
-          
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 10,
+                spreadRadius: 2,
+              ),
+            ],
           ),
           child: ClipRRect(
-          
             borderRadius: BorderRadius.circular(30),
             child: GNav(
               backgroundColor: Colors.white,
-              // gap: 8,
-              activeColor: AppColors.primary, // Couleur pour l'icône et le texte actif
-              iconSize: 28,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              rippleColor: AppColors.primary.withOpacity(0.1),
+              hoverColor: AppColors.primary.withOpacity(0.1),
+              gap: 8,
+              activeColor: Colors.white, // Couleur icône active
+              color: Colors.black, // Couleur icône inactive
+              iconSize: 26,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               duration: const Duration(milliseconds: 300),
-              textStyle: const TextStyle(fontSize: 12),
+              tabBackgroundColor: AppColors.primary, // Fond de l'onglet actif
               tabs: [
-                // Home Tab
                 GButton(
                   icon: _selectedIndex == 0
-                      ? MdiIcons.home  // Version solide
-                      : MdiIcons.homeOutline,  // Version outline
-                  text: 'Home',
-                  iconColor: Colors.black,
+                      ? MdiIcons.home
+                      : MdiIcons.homeOutline,
                 ),
-                
-                // Shop Tab
                 GButton(
                   icon: _selectedIndex == 1
-                      ? MdiIcons.cart  // Version solide
-                      : MdiIcons.cartOutline,  // Version outline
-                  text: 'Shop',
-                  iconColor: Colors.black,
+                      ? MdiIcons.cart
+                      : MdiIcons.cartOutline,
                 ),
-                
-                // Favorites Tab
                 GButton(
                   icon: _selectedIndex == 2
-                      ? MdiIcons.heart  // Version solide
-                      : MdiIcons.heartOutline,  // Version outline
-                  text: 'Favorites',
-                  iconColor: Colors.black,
+                      ? MdiIcons.heart
+                      : MdiIcons.heartOutline,
                 ),
-                
-                // Profile Tab
                 GButton(
                   icon: _selectedIndex == 3
-                      ? MdiIcons.account  // Version solide
-                      : MdiIcons.accountOutline,  // Version outline
-                  text: 'Profile',
-                  iconColor: Colors.black,
+                      ? MdiIcons.account
+                      : MdiIcons.accountOutline,
                 ),
               ],
               selectedIndex: _selectedIndex,
