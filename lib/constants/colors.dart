@@ -12,7 +12,7 @@ class AppColors {
 
 
   static const Color alert = Color(0xFFEE463A);   
-   static const Color grayFineColor = Color.fromARGB(255, 215, 215, 218);  
+static const Color grayFineColor = Color(0xFFF0EFED);
 
   static const Color whiteContainer = Color(0xFFFFFFFF); 
   static const Color whiteBack = Color(0xFFFBFBFB);  

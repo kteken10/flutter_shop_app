@@ -20,9 +20,9 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
-              'Discover',
+              'Shop',
               style: TextStyle(
-                color: Colors.black,
+                color: AppColors.grayFineColor,
                 fontSize: 24,
               ),
             ),

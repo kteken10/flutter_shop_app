@@ -43,13 +43,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 10,
-                offset: Offset(0, 5),
-              ),
-            ],
+          
           ),
           child: ClipRRect(
           
