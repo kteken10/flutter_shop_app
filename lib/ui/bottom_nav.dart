@@ -40,13 +40,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 10,
-                spreadRadius: 2,
-              ),
-            ],
+          
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(30),
@@ -54,33 +48,44 @@ class _BottomNavBarState extends State<BottomNavBar> {
               backgroundColor: Colors.white,
               rippleColor: AppColors.primary.withOpacity(0.1),
               hoverColor: AppColors.primary.withOpacity(0.1),
-              gap: 8,
-              activeColor: Colors.white, // Couleur icône active
-              color: Colors.black, // Couleur icône inactive
+              gap: 4, // Réduit pour l'effet ovale
+              activeColor: Colors.white,
+              color: Colors.black,
               iconSize: 26,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               duration: const Duration(milliseconds: 300),
-              tabBackgroundColor: AppColors.primary, // Fond de l'onglet actif
+              tabBackgroundColor: AppColors.primary,
+              tabBorderRadius: 20, // Forme ovale
+              tabMargin: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+              curve: Curves.easeOutExpo,
               tabs: [
                 GButton(
                   icon: _selectedIndex == 0
                       ? MdiIcons.home
                       : MdiIcons.homeOutline,
+                  iconSize: 26,
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 ),
                 GButton(
                   icon: _selectedIndex == 1
                       ? MdiIcons.cart
                       : MdiIcons.cartOutline,
+                  iconSize: 26,
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 ),
                 GButton(
                   icon: _selectedIndex == 2
                       ? MdiIcons.heart
                       : MdiIcons.heartOutline,
+                  iconSize: 26,
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 ),
                 GButton(
                   icon: _selectedIndex == 3
                       ? MdiIcons.account
                       : MdiIcons.accountOutline,
+                  iconSize: 26,
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 ),
               ],
               selectedIndex: _selectedIndex,
