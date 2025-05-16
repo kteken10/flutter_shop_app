@@ -38,7 +38,7 @@ class _SignUpFormState extends State<SignUpForm> {
         const SizedBox(height: 16),
         Input(
           controller: _passwordController,
-          labelText: '',
+          labelText: 'PassWord',
           prefixIcon: const Icon(Icons.lock, color: AppColors.grayFineColor),
           suffixIcon: Icon(
             _obscurePassword ? Icons.visibility_off : Icons.visibility,

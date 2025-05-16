@@ -17,7 +17,7 @@ class ProductCategory extends StatelessWidget {
         itemCount: categories.length,
         itemBuilder: (context, index) {
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 4), // Espace entre les catégories
+            margin: const EdgeInsets.symmetric(horizontal: 4), 
             padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
@@ -26,8 +26,8 @@ class ProductCategory extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                getIconForCategory(categories[index]), // Icône personnalisée
-                const SizedBox(width: 8), // Espacement entre l'icône et le texte
+                getIconForCategory(categories[index]), 
+                const SizedBox(width: 8), 
                 Text(
                   categories[index],
                   textAlign: TextAlign.center,

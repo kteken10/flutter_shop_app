@@ -7,21 +7,30 @@ class InputField extends StatelessWidget {
   final String? hintText;
   final TextInputType keyboardType;
   final bool obscureText;
-  final bool showSearchIcon; 
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final bool showSearchIcon;
+  final Color borderColor; // Nouveau paramètre pour la couleur de bordure
+  final Color? focusedBorderColor; // Optionnel pour le focus
 
   const InputField({
     super.key,
     required this.controller,
     this.label = '',
-    this.hintText, 
+    this.hintText,
     required this.keyboardType,
-    required this.obscureText,
-    this.showSearchIcon = false, 
+    this.obscureText = false,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.showSearchIcon = false,
+    this.borderColor = Colors.black, // Bordure noire par défaut
+    this.focusedBorderColor, // Null par défaut = pas de changement au focus
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      color: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,33 +49,32 @@ class InputField extends StatelessWidget {
             obscureText: obscureText,
             style: const TextStyle(color: Colors.black),
             decoration: InputDecoration(
-            
-              fillColor: AppColors.quadrary.withOpacity(0.1),
+              fillColor: Colors.white,
               filled: true,
-             
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 12.0,
-                horizontal: 16.0, 
+                horizontal: 16.0,
               ),
-            
               hintText: hintText,
               hintStyle: const TextStyle(color: AppColors.grayFineColor),
-           
-              suffixIcon: showSearchIcon
+              prefixIcon: prefixIcon ?? (showSearchIcon 
                   ? const Icon(
                       Icons.search_rounded,
-                      color: AppColors.grayFineColor,
-                      size: 30,
-                    )
-                  : null,
-             
+                      color: AppColors.gray,
+                      size: 24,
+                    ) 
+                  : null),
+              suffixIcon: suffixIcon,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16.0),
-                borderSide: const BorderSide(color: Colors.transparent),
+                borderSide: BorderSide(color: borderColor), // Bordure noire par défaut
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16.0),
-                borderSide: const BorderSide(color: AppColors.primary, width: 1),
+                borderSide: BorderSide(
+                  color: focusedBorderColor ?? borderColor, // Garde la même couleur si null
+                  width: 1,
+                ),
               ),
             ),
           ),

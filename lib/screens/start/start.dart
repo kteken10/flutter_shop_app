@@ -31,7 +31,7 @@ class StartScreen extends StatelessWidget {
             ),
           ),
 
-          // Image centrale
+        
           Center(
             child: SizedBox(
               height: screenSize.height * 0.79,

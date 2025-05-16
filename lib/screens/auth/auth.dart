@@ -32,7 +32,7 @@ class _AuthScreenState extends State<AuthScreen> {
         onTap: () => FocusScope.of(context).unfocus(),
         child: Stack(
           children: [
-            // Background with gradient and image
+            
             Container(
               height: screenSize.height,
               width: double.infinity,
