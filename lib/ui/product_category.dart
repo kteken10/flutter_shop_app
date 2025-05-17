@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 
-class ProductCategory extends StatelessWidget {
+class ProductCategory extends StatefulWidget {
   final List<String> categories;
 
   const ProductCategory({
@@ -9,35 +10,56 @@ class ProductCategory extends StatelessWidget {
   });
 
   @override
+  State<ProductCategory> createState() => _ProductCategoryState();
+}
+
+class _ProductCategoryState extends State<ProductCategory> {
+  int selectedIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
+      height: 35,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
+        itemCount: widget.categories.length,
         itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 4), 
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(width: 1, color: Colors.black),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                getIconForCategory(categories[index]), 
-                const SizedBox(width: 8), 
-                Text(
-                  categories[index],
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+          bool isSelected = selectedIndex == index;
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                selectedIndex = index;
+              });
+              // Tu peux déclencher ici un callback ou une fonction de filtrage si besoin
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+              decoration: BoxDecoration(
+                color: isSelected ? AppColors.primary.withOpacity(0.05) : Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  width: 1,
+                  color: isSelected ? AppColors.primary.withOpacity(0.1) : AppColors.grayFineColor,
                 ),
-              ],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  getIconForCategory(widget.categories[index], isSelected),
+                  const SizedBox(width: 8),
+                  Text(
+                    widget.categories[index],
+                    style: TextStyle(
+                      color: isSelected ? AppColors.primary : AppColors.gray,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
@@ -45,19 +67,32 @@ class ProductCategory extends StatelessWidget {
     );
   }
 
-  // Méthode pour obtenir une icône personnalisée en fonction de la catégorie
-  Icon getIconForCategory(String category) {
-    switch (category) {
-      case 'All':
-        return const Icon(Icons.category, color: Colors.black, size: 16);
-      case 'SmartPhone':
-        return const Icon(Icons.smartphone, color: Colors.black, size: 16);
-      case 'HeadPhone':
-        return const Icon(Icons.headphones, color: Colors.black, size: 16);
-      case 'Laptop':
-        return const Icon(Icons.laptop, color: Colors.black, size: 16);
-      default:
-        return const Icon(Icons.device_unknown, color: Colors.black, size: 16); // Icône par défaut
-    }
+ Widget getIconForCategory(String category, bool isSelected) {
+  String emoji;
+  switch (category.toLowerCase()) {
+    case 'all':
+      emoji = '🗂️';
+      break;
+    case 'women':
+      emoji = '🧕';
+      break;
+    case 'men':
+      emoji = '👨';
+      break;
+    case 'sport':
+      emoji = '🏀';
+      break;
+    default:
+      emoji = '📦';
   }
+
+  return Text(
+    emoji,
+    style: TextStyle(
+      fontSize: 16,
+      color: isSelected ? Colors.white : Colors.black,
+    ),
+  );
+}
+
 }

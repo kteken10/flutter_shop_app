@@ -17,12 +17,13 @@ class SearchZone extends StatelessWidget {
     this.onMicPressed,
     this.hintText = 'Search',
     this.showSearchIcon = true,
-    this.spacing = 8.0,
+    this.spacing = 12.0,
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center, // Alignement vertical central
       children: [
         // Champ de recherche étendu
         Expanded(
@@ -45,16 +46,22 @@ class SearchZone extends StatelessWidget {
         // Espacement
         SizedBox(width: spacing),
         
-        // Bouton caméra (seulement si onCameraPressed est fourni)
+        // Bouton caméra parfaitement aligné
         if (onCameraPressed != null)
-          IconButton(
-            icon: const Icon(Icons.camera_alt, color: AppColors.gray),
-            onPressed: onCameraPressed,
-            style: IconButton.styleFrom(
-              backgroundColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-                side: const BorderSide(color: AppColors.grayFineColor),
+          Container(
+            height: 40, // Hauteur égale au champ de saisie
+            width: 40,  // Largeur égale à la hauteur pour un carré parfait
+            margin: const EdgeInsets.only(top: 8), // Compensation du padding interne
+            child: IconButton(
+              icon: const Icon(Icons.camera_alt, size: 20, color: AppColors.ternary),
+              onPressed: onCameraPressed,
+              padding: EdgeInsets.zero, // Supprime le padding interne
+              style: IconButton.styleFrom(
+                backgroundColor: AppColors.grayFineColor.withOpacity(0.7),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                  side: const BorderSide(color: AppColors.grayFineColor, width: 1),
+                ),
               ),
             ),
           ),

@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
           
             const ProductCategory(
-              categories: ["All", "SmartPhone", "HeadPhone", "Laptop"],
+              categories: ["All","women", "men", "sport", "Laptop"],
             ),
           ],
         ),
