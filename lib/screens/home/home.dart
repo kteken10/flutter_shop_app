@@ -3,6 +3,7 @@ import 'package:myshop/constants/colors.dart';
 import 'package:myshop/ui/text.dart';
 import '../../ui/input_field.dart';
 import '../../ui/product_category.dart';
+import '../../ui/search_zone.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -72,20 +73,11 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           InputField(
+           SearchZone(
   controller: searchController,
-  keyboardType: TextInputType.text,
-  obscureText: false,
-  showSearchIcon: true ,
-  hintText: 'search',
-  borderColor: AppColors.grayFineColor,
-  suffixIcon: IconButton(
-    icon: const Icon(Icons.mic, color: AppColors.gray),
-    onPressed: () {
-     
-    },
-  ),
-),
+  onCameraPressed: () => {},
+  onMicPressed: () => {},
+  spacing: 12.0,), 
             const SizedBox(height: 20),
           
             const ProductCategory(

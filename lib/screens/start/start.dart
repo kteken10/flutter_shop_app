@@ -32,16 +32,16 @@ class StartScreen extends StatelessWidget {
           ),
 
         
-          Center(
-            child: SizedBox(
-              height: screenSize.height * 0.79,
-              width: screenSize.width * 0.9,
-              child: Image.asset(
-                'assets/images/girl_smile.png',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          // Center(
+          //   child: SizedBox(
+          //     height: screenSize.height * 0.79,
+          //     width: screenSize.width * 0.9,
+          //     child: Image.asset(
+          //       'assets/images/girl_smile.png',
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
 
           // Texte "FASHION" positionné sur l'image
           Positioned(
