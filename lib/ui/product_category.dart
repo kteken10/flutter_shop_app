@@ -18,8 +18,9 @@ class _ProductCategoryState extends State<ProductCategory> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 35,
+       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: widget.categories.length,
@@ -34,7 +35,7 @@ class _ProductCategoryState extends State<ProductCategory> {
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 6),
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
               decoration: BoxDecoration(
                 color: isSelected ? AppColors.primary.withOpacity(0.05) : Colors.white,
                 borderRadius: BorderRadius.circular(20),

@@ -68,8 +68,8 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(
+      
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

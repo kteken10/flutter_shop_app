@@ -97,7 +97,7 @@ class _PromoCarouselState extends State<PromoCarousel> {
             itemBuilder: (_, index) => _bannersWithFakeLast[index],
           ),
         ),
-        const SizedBox(height: 8),
+      
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(

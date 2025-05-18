@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/colors.dart';
+
 class PromoBanner extends StatelessWidget {
   final String price;
 
@@ -28,9 +30,10 @@ class PromoBanner extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             child: Container(
               padding: const EdgeInsets.all(16),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xFFFF8C42), Color(0xFFFF6F61)],
+                  colors: [ 
+                  AppColors.primary,AppColors.primary.withOpacity(0.6)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -66,12 +69,12 @@ class PromoBanner extends StatelessWidget {
                               Text(
                                 'Shop Now',
                                 style: TextStyle(
-                                  color: Color(0xFFFF6F61),
+                                  color: AppColors.primary,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               SizedBox(width: 6),
-                              Icon(Icons.arrow_outward, size: 16, color: Color(0xFFFF6F61)),
+                              Icon(Icons.arrow_outward, size: 16, color: AppColors.primary),
                             ],
                           ),
                         ),
@@ -105,7 +108,7 @@ class PromoBanner extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.green,
+                  color: AppColors.secondary,
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: const [
                     BoxShadow(
