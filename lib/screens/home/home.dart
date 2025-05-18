@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             CategoryCircle(
-  categories: const ["Shoes", "Bag", "Men", "Sport", "Laptop"],
+  categories: const ["shoes", "bag","headphone","cosmetics","sunglasses"],
   onCategorySelected: (category) {
     
   },
