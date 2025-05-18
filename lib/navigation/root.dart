@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/auth/auth.dart';
 
+import '../screens/product_detail/product_detail.dart';
 import '../screens/start/start.dart';
 import '../ui/bottom_nav.dart';
 
@@ -19,8 +20,8 @@ class RootScreen extends StatelessWidget {
       routes: {
         '/start': (context) => const StartScreen(),
         '/auth': (context) => const AuthScreen(),
-       
-        '/bottomNav': (context) => const BottomNavBar(),  
+        '/bottomNav': (context) => const BottomNavBar(),
+       '/productDetail': (context) => const ProductDetailScreen(),// Valeurs par défaut, elles seront remplacées via arguments
       },
     );
   }

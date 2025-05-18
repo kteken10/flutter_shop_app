@@ -76,91 +76,109 @@ class HomeScreen extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-  child: SingleChildScrollView(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SearchZone(
-          controller: searchController,
-          onCameraPressed: () => {},
-          onMicPressed: () => {},
-          spacing: 12.0,
-        ),
-        const SizedBox(height: 20),
-        const ProductCategory(
-          categories: ["All", "women", "men", "sport", "Laptop"],
-        ),
-        const SizedBox(height: 20),
-        const PromoCarousel(),
-         
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TextWidget(
-                'Categories',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.ternary,
+              SearchZone(
+                controller: searchController,
+                onCameraPressed: () {},
+                onMicPressed: () {},
+                spacing: 12.0,
+              ),
+              const SizedBox(height: 20),
+              const ProductCategory(
+                categories: ["All", "women", "men", "sport", "Laptop"],
+              ),
+              const SizedBox(height: 20),
+              const PromoCarousel(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const TextWidget(
+                      'Categories',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.ternary,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        // Action pour "See All"
+                      },
+                      child: const TextWidget(
+                        'See All',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: AppColors.ternary,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  // Action pour "See All"
-                },
-                child: const TextWidget(
-                  'See All',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: AppColors.ternary,
-                  ),
+              const CategoryCircle(
+                categories: ["shoes", "bag", "headphone", "cosmetics", "sunglasses"],
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 16, top: 16, bottom: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextWidget(
+                      'Top Selling',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.ternary,
+                      ),
+                    ),
+                    // Le GestureDetector ici n'est pas nécessaire car il n'y a pas d'action
+                  ],
                 ),
+              ),
+              GridView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.75,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
+                ),
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return ProductShow(
+                    imagePath: product['image']!,
+                    price: product['price']!,
+                    productName: product['name'],
+                    category: 'Women Cosmetic',
+                    rating: 4.5,
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/productDetail',
+                        arguments: {
+                          'imagePath': product['image'],
+                          'price': product['price'],
+                          'productName': product['name'],
+                          'category': 'Women Cosmetic',
+                          'rating': 4.5,
+                        },
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
         ),
-        const CategoryCircle(
-          categories: ["shoes", "bag", "headphone", "cosmetics", "sunglasses"],
-        ),
-        const Padding(
-          padding: EdgeInsets.only(left: 16, top: 16, bottom: 8),
-          child: Text(
-            'Featured Products',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-     
-        GridView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16), // padding général
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(), 
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 0.75,
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8,
-          ),
-          itemCount: products.length,
-          itemBuilder: (context, index) {
-            return ProductShow(
-              imagePath: products[index]['image']!,
-              price: products[index]['price']!,
-              productName: products[index]['name'],
-              category: 'Women Cosmetic',
-              rating: 4.5,
-            );
-          },
-        ),
-      
-      ],
-    ),
-  ),
-),
+      ),
     );
   }
 }
