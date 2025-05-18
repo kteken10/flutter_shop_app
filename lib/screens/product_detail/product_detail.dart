@@ -75,6 +75,7 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 8),
             const SectionDetail()
           ],
         ),

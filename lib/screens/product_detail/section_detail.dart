@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myshop/ui/text.dart';
 
 import '../../constants/colors.dart';
 
@@ -37,13 +38,13 @@ class _SectionDetailState extends State<SectionDetail> {
               child: Column(
                 children: [
                   Container(
-                   
-                    child: Text(
+                   padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: TextWidget(
                       options[index],
                       style: TextStyle(
                         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                         color: isSelected ? AppColors.primary: Colors.black54,
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                     ),
                   ),
