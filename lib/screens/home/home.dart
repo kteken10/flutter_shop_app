@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/constants/colors.dart';
-import 'package:myshop/ui/promo_banner.dart';
-import 'package:myshop/ui/text.dart';
-import '../../ui/input_field.dart';
+
 import '../../ui/product_category.dart';
-import '../../ui/promo_carouseldart';
+import '../../ui/promo_carousel.dart';
 import '../../ui/search_zone.dart';
 
 class HomeScreen extends StatelessWidget {

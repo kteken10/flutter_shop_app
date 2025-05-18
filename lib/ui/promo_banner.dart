@@ -60,9 +60,9 @@ class PromoBanner extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          child: Row(
+                          child: const Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Text(
                                 'Shop Now',
                                 style: TextStyle(
