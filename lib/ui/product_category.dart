@@ -67,32 +67,21 @@ class _ProductCategoryState extends State<ProductCategory> {
     );
   }
 
- Widget getIconForCategory(String category, bool isSelected) {
-  String emoji;
-  switch (category.toLowerCase()) {
-    case 'all':
-      emoji = '🗂️';
-      break;
-    case 'women':
-      emoji = '🧕';
-      break;
-    case 'men':
-      emoji = '👨';
-      break;
-    case 'sport':
-      emoji = '🏀';
-      break;
-    default:
-      emoji = '📦';
-  }
+Icon getIconForCategory(String category, bool isSelected) {
+    Color iconColor = isSelected ? AppColors.primary : AppColors.gray;
 
-  return Text(
-    emoji,
-    style: TextStyle(
-      fontSize: 16,
-      color: isSelected ? Colors.white : Colors.black,
-    ),
-  );
-}
+    switch (category.toLowerCase()) {
+      case 'all':
+        return Icon(Icons.grid_view_rounded, color: iconColor, size: 18);
+      case 'women':
+        return Icon(Icons.woman, color: iconColor, size: 18);
+      case 'men':
+        return Icon(Icons.man, color: iconColor, size: 18);
+      case 'sport':
+        return Icon(Icons.sports_basketball, color: iconColor, size: 18);
+      default:
+        return Icon(Icons.category_outlined, color: iconColor, size: 18);
+    }
+  }
 
 }

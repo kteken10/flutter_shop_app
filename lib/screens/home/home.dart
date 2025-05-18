@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/constants/colors.dart';
+import 'package:myshop/ui/promo_banner.dart';
 import 'package:myshop/ui/text.dart';
 import '../../ui/input_field.dart';
 import '../../ui/product_category.dart';
+import '../../ui/promo_carouseldart';
 import '../../ui/search_zone.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -83,6 +85,8 @@ class HomeScreen extends StatelessWidget {
             const ProductCategory(
               categories: ["All","women", "men", "sport", "Laptop"],
             ),
+             const SizedBox(height: 20),
+            const  PromoCarousel()
           ],
         ),
       ),
