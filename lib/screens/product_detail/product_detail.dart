@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/screens/product_detail/product_banner.dart';
+import 'package:myshop/ui/text.dart';
 
 import '../../constants/colors.dart';
+import '../../ui/category_circle.dart';
+import 'section_detail.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key});
@@ -17,38 +20,62 @@ class ProductDetailScreen extends StatelessWidget {
     final double? rating = args?['rating'];
 
     return Scaffold(
-      appBar: AppBar(title:const Text(
-                  'Product Detail',
-                  style: TextStyle(
-                    color: AppColors.ternary,
-                    fontSize: 20,
-                  ),
-                )),
+      appBar: AppBar(
+        title: const Text(
+          'Product Detail',
+          style: TextStyle(
+            color: AppColors.ternary,
+            fontSize: 20,
+          ),
+        ),
+      ),
       body: Container(
-      
         child: Column(
           children: [
-            // Image.asset(imagePath, height: 200),
             ProductBanner(price: price, imagePath: imagePath),
-            const SizedBox(height: 16),
-            Text(productName ?? '', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-            Text(price, style: const TextStyle(fontSize: 18, color: Colors.green)),
-            if (category != null) ...[
+            const CategoryCircle(
+              categories: ["shoes", "bag", "headphone", "cosmetics", "sunglasses"],
+            ),
+            if (category != null || rating != null) ...[
               const SizedBox(height: 8),
-              Text(category, style: const TextStyle(fontSize: 16, color: Colors.grey)),
-            ],
-            if (rating != null) ...[
-              const SizedBox(height: 8),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(rating.toString(), style: const TextStyle(fontSize: 16)),
-                  const SizedBox(width: 4),
-                  const Icon(Icons.star, color: Colors.amber, size: 18),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (category != null)
+                      TextWidget(
+                        category!.toUpperCase(),
+                        style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                    if (rating != null)
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextWidget(
+                            rating.toString(),
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(width: 4),
+                          const Icon(Icons.star, color: Colors.amber, size: 18),
+                        ],
+                      ),
+                  ],
+                ),
               ),
             ],
+           
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextWidget(
+                  productName ?? '',
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            const SectionDetail()
           ],
         ),
       ),

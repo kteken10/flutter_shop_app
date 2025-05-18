@@ -44,7 +44,7 @@ class ProductBanner extends StatelessWidget {
                   child: Image.asset(
                     imagePath,
                     fit: BoxFit.fitWidth,
-                    height: 260,
+                    height: 240,
                     // width: 400,
                   ),
                 ),
