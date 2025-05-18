@@ -19,11 +19,12 @@ class SearchZone extends StatelessWidget {
     this.showSearchIcon = true,
     this.spacing = 12.0,
   });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center, // Alignement vertical central
+@override
+Widget build(BuildContext context) {
+  return Container(
+    padding: const EdgeInsets.symmetric(horizontal: 16), // <-- Ajout du padding horizontal
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // Champ de recherche étendu
         Expanded(
@@ -42,20 +43,20 @@ class SearchZone extends StatelessWidget {
                 : null,
           ),
         ),
-        
+
         // Espacement
         SizedBox(width: spacing),
-        
+
         // Bouton caméra parfaitement aligné
         if (onCameraPressed != null)
           Container(
-            height: 40, // Hauteur égale au champ de saisie
-            width: 40,  // Largeur égale à la hauteur pour un carré parfait
-            margin: const EdgeInsets.only(top: 8), // Compensation du padding interne
+            height: 40,
+            width: 40,
+            margin: const EdgeInsets.only(top: 8),
             child: IconButton(
               icon: const Icon(Icons.camera_alt, size: 20, color: AppColors.ternary),
               onPressed: onCameraPressed,
-              padding: EdgeInsets.zero, // Supprime le padding interne
+              padding: EdgeInsets.zero,
               style: IconButton.styleFrom(
                 backgroundColor: AppColors.grayFineColor.withOpacity(0.7),
                 shape: RoundedRectangleBorder(
@@ -66,6 +67,7 @@ class SearchZone extends StatelessWidget {
             ),
           ),
       ],
-    );
-  }
+    ),
+  );
+}
 }

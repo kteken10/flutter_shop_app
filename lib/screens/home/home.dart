@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myshop/constants/colors.dart';
 import 'package:myshop/ui/text.dart';
 
+import '../../ui/category_circle.dart';
 import '../../ui/product_category.dart';
 import '../../ui/promo_carousel.dart';
 import '../../ui/search_zone.dart';
@@ -114,6 +115,12 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            CategoryCircle(
+  categories: const ["Shoes", "Bag", "Men", "Sport", "Laptop"],
+  onCategorySelected: (category) {
+    
+  },
+  )
           ],
         ),
       ),
