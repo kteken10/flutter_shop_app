@@ -58,8 +58,8 @@ class ProductShow extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: 8,
-                      // right: 8,
+                      bottom: 2,
+                      right: 1,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,

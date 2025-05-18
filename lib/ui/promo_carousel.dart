@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 import 'promo_banner.dart';
 
 class PromoCarousel extends StatefulWidget {
@@ -9,110 +10,103 @@ class PromoCarousel extends StatefulWidget {
 }
 
 class _PromoCarouselState extends State<PromoCarousel> {
-  late final PageController _pageController;
+  final PageController _pageController = PageController(viewportFraction: 1.0);
   int _currentPage = 0;
 
-  // Liste originale des bannières
   final List<Widget> _banners = const [
     PromoBanner(price: '\$200'),
     PromoBanner(price: '\$150'),
     PromoBanner(price: '\$100'),
   ];
 
-  // Liste étendue avec une page fantôme = copie de la première bannière
-  late final List<Widget> _bannersWithFakeLast;
-
   @override
   void initState() {
     super.initState();
-
-    // On crée la liste avec la page fantôme à la fin
-    _bannersWithFakeLast = [..._banners, _banners[0]];
-
-    // Le controller commence à la page 0
-    _pageController = PageController(initialPage: 0);
-
-    _startAutoScroll();
+    _autoScroll();
   }
 
-  void _startAutoScroll() {
-    Future.delayed(const Duration(seconds: 4), () {
+  void _autoScroll() {
+    Future.delayed(const Duration(seconds: 4), () { // 4 secondes
       if (!mounted) return;
 
-      int nextPage = _pageController.page!.toInt() + 1;
-
-      // Animation vers la page suivante
+      int nextPage = (_currentPage + 1) % _banners.length;
       _pageController.animateToPage(
         nextPage,
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
       );
 
       setState(() {
-        // Si on est sur la dernière page fantôme, on remet à 0
-        if (nextPage == _bannersWithFakeLast.length - 1) {
-          _currentPage = 0;
-        } else {
-          _currentPage = nextPage;
-        }
+        _currentPage = nextPage;
       });
 
-      _startAutoScroll();
+      _autoScroll();
     });
-  }
-
-  void _handlePageChanged(int page) {
-    if (page == _bannersWithFakeLast.length - 1) {
-      // Dès qu'on arrive sur la page fantôme (fin), on saute sans animation à la vraie première page
-      Future.delayed(const Duration(milliseconds: 300), () {
-        _pageController.jumpToPage(0);
-      });
-
-      setState(() {
-        _currentPage = 0;
-      });
-    } else {
-      setState(() {
-        _currentPage = page;
-      });
-    }
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
-          height: 180,
+          height: 220,
           child: PageView.builder(
             controller: _pageController,
-            itemCount: _bannersWithFakeLast.length,
-            onPageChanged: _handlePageChanged,
-            itemBuilder: (_, index) => _bannersWithFakeLast[index],
+            itemCount: _banners.length,
+            onPageChanged: (index) {
+              setState(() {
+                _currentPage = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              return AnimatedBuilder(
+                animation: _pageController,
+                builder: (context, child) {
+                  double value = 0;
+                  try {
+                    value = _pageController.page! - index;
+                  } catch (e) {
+                    value = (_currentPage - index).toDouble();
+                  }
+                  value = value.clamp(-1.0, 1.0);
+
+                  double rotationY = value * 0.5;
+                  double scale = 1 - (value.abs() * 0.2);
+
+                  return Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..setEntry(3, 2, 0.003)
+                      ..rotateY(rotationY),
+                    child: Transform.scale(
+                      scale: scale,
+                      child: child,
+                    ),
+                  );
+                },
+                child: _banners[index],
+              );
+            },
           ),
         ),
-      
+        const SizedBox(height: 12),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            _banners.length, // On utilise la longueur sans la page fantôme ici
-            (index) => AnimatedContainer(
+          children: List.generate(_banners.length, (index) {
+            return AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               margin: const EdgeInsets.symmetric(horizontal: 4),
-              width: _currentPage == index ? 10 : 6,
-              height: _currentPage == index ? 10 : 6,
+              width: _currentPage == index ? 16 : 8,
+              height: 8,
               decoration: BoxDecoration(
-                color: _currentPage == index ? Colors.orange : Colors.orange[200],
-                shape: BoxShape.circle,
+                color: _currentPage == index
+                    ? AppColors.primary
+                    : Colors.grey[400],
+                borderRadius: BorderRadius.circular(4),
               ),
-            ),
-          ),
+            );
+          }),
         ),
       ],
     );

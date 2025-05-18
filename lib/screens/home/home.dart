@@ -92,6 +92,7 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const PromoCarousel(),
+         
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           child: Row(
