@@ -151,12 +151,12 @@ class HomeScreen extends StatelessWidget {
               imagePath: products[index]['image']!,
               price: products[index]['price']!,
               productName: products[index]['name'],
-               category: 'Women Cosmetic',
-  rating: 4.5,
+              category: 'Women Cosmetic',
+              rating: 4.5,
             );
           },
         ),
-        const SizedBox(height: 50), // padding final
+      
       ],
     ),
   ),

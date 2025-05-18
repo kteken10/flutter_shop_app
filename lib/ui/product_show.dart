@@ -116,13 +116,37 @@ class ProductShow extends StatelessWidget {
               ),
             ],
           ),
+          // Icône chariot en haut à droite
+          Positioned(
+            top: 8,
+            right: 8,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  ),
+                ],
+              ),
+              padding: const EdgeInsets.all(6),
+              child: const Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.black87,
+                size: 20,
+              ),
+            ),
+          ),
           // Prix en intersection
           Positioned(
             right: 4,
             top: null,
             bottom: 50, // Ajuste cette valeur pour l'effet d'intersection
             child: Material(
-              color: Colors.transparent,
+              color: AppColors.white,
               elevation: 2,
               borderRadius: BorderRadius.circular(20),
               child: Container(
