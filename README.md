@@ -50,22 +50,14 @@ This project is a **mobile e-commerce platform** built with **Flutter** and powe
 
 ### 💻 Installation Steps
 
-#### Backend
 
-```bash
-# Clone the backend repo (if separated)
-cd backend/
-python -m venv env
-source env/bin/activate  # or .\env\Scripts\activate on Windows
-pip install -r requirements.txt
-python app.py  # or flask run
 ```
 
 #### Frontend
 
 ```bash
-# Clone the frontend repo
-cd flutter_frontend/
+# Clone the repo
+cd flutter_shop_app/
 flutter pub get
 flutter run
 ```
@@ -109,15 +101,7 @@ ecommerce_app/
 │   ├── lib/
 │   ├── assets/
 │   └── pubspec.yaml
-│
-├── backend/ (Flask)
-│   ├── app.py
-│   ├── models/
-│   └── routes/
-│
-└── database/
-    └── schema.sql / migrations/
-```
+
 
 ---
 
